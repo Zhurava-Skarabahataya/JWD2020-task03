@@ -3,23 +3,25 @@
  * Образовать новую последовательность, выбросив из исходной те члены, которые равны  .
  */
 
-package by.epamtc.zhurava.arrays.task02;
+package by.epamtc.zhurava.array.task02;
 
 import java.util.Arrays;
 
 public class Main {
 
 	public static void main(String[] args) {
+		
 		int[] numbers = { 1, 4, 7, 4, 6, 8, 7 };
 
 		int[] uniqueNumbers;
 		uniqueNumbers = deleteEqualNumbers(numbers);
-
+		
 		System.out.println(Arrays.toString(uniqueNumbers));
 
 	}
 
-	private static int[] deleteEqualNumbers(int[] numbers) {
+	
+private static int[] deleteEqualNumbers(int[] numbers) {
 		
 		int amountOfUniqueNumbers;
 		amountOfUniqueNumbers = countUniqueNumbers(numbers);
