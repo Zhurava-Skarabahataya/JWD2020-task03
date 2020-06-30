@@ -1,6 +1,5 @@
 /*
- * Даны действительные числа  . Найти
- .
+ * Даны действительные числа  . Найти максимальную сумму ai + a2n-i.
  */
 
 package by.epamtc.zhurava.array.task01;
@@ -8,13 +7,13 @@ package by.epamtc.zhurava.array.task01;
 public class Main {
 
 	public static void main(String[] args) {
-		
-		double[] numbers = { 1, 4, 8, 16, 2, 3, 5, 1 };
+
+		double[] numbers = new double[] { 1, 4, 8, 16, 2, 3, 5, 1 };
 
 		System.out.println(findMaxSum(numbers));
 
 	}
-	
+
 	private static double findMaxSum(double[] numbers) {
 
 		int lastNumberIndex;

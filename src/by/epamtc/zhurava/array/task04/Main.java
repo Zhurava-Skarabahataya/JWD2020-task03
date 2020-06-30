@@ -9,14 +9,14 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		int[] numbers = { 3, 6, 1, 2, 2, 2, 7, 7, 7, 4, 8 };
+		int[] numbers = new int[] { 3, 6, 1, 2, 2, 2, 7, 7, 7, 4, 8 };
 
 		System.out.println(findMostFrequentNumber(numbers));
 
 	}
 
-private static int findMostFrequentNumber(int[] numbers) {
-		
+	private static int findMostFrequentNumber(int[] numbers) {
+
 		int maxFrequency;
 		int mostFrequentNumber;
 
@@ -24,14 +24,14 @@ private static int findMostFrequentNumber(int[] numbers) {
 		mostFrequentNumber = numbers[0];
 
 		for (int index = 0; index < numbers.length; index++) {
-			
+
 			int frequency;
 			frequency = findFrequency(numbers[index], numbers);
 
 			if (frequency > maxFrequency) {
 				maxFrequency = frequency;
 				mostFrequentNumber = numbers[index];
-				
+
 			} else if (frequency == maxFrequency) {
 				if (numbers[index] < mostFrequentNumber) {
 					mostFrequentNumber = numbers[index];

@@ -1,6 +1,6 @@
 /*
  * Дана последовательность целых чисел  . 
- * Образовать новую последовательность, выбросив из исходной те члены, которые равны  .
+ * Образовать новую последовательность, выбросив из исходной те члены, которые равны минимуму.
  */
 
 package by.epamtc.zhurava.array.task02;
@@ -10,61 +10,77 @@ import java.util.Arrays;
 public class Main {
 
 	public static void main(String[] args) {
-		
-		int[] numbers = { 1, 4, 7, 4, 6, 8, 7 };
 
-		int[] uniqueNumbers;
-		uniqueNumbers = deleteEqualNumbers(numbers);
-		
-		System.out.println(Arrays.toString(uniqueNumbers));
+		int[] numbers = new int[] { 1, 4, 7, 1, 1, 4, 6, 8, 7 };
+
+		int[] numbersWithoutMin;
+		numbersWithoutMin = deleteMinimalNumbers(numbers);
+
+		System.out.println(Arrays.toString(numbersWithoutMin));
 
 	}
 
-	
-private static int[] deleteEqualNumbers(int[] numbers) {
-		
-		int amountOfUniqueNumbers;
-		amountOfUniqueNumbers = countUniqueNumbers(numbers);
+	private static int[] deleteMinimalNumbers(int[] numbers) {
 
-		int[] uniqueNumbers;
-		uniqueNumbers = new int[amountOfUniqueNumbers];
+		int minimum;
+		int[] arrayWithoutMinimal;
+		int arrayLengthWithoutMinimals;
 
-		int uniqueCounter;
-		uniqueCounter = 0;
+		minimum = findMinimum(numbers);
 
-		for (int i = 0; i < numbers.length; i++) {
-			if (isNumberUnique(numbers[i], numbers)) {
-				uniqueNumbers[uniqueCounter++] = numbers[i];
+		arrayLengthWithoutMinimals = findArrayLengthWithoutMinimals(minimum, numbers);
+
+		arrayWithoutMinimal = new int[arrayLengthWithoutMinimals];
+
+		int count;
+		count = 0;
+
+		for (int index = 0; index < numbers.length; index++) {
+			if (numbers[index] != minimum) {
+				arrayWithoutMinimal[count++] = numbers[index];
 			}
 		}
-		
-		return uniqueNumbers;
+
+		return arrayWithoutMinimal;
 	}
 
-	private static int countUniqueNumbers(int[] numbers) {
-		int counter;
-		counter = 0;
-		
-		for (int i = 0; i < numbers.length; i++) {
-			if (isNumberUnique(numbers[i], numbers)) {
-				counter++;
-			}
-		}
-		
-		return counter;
+	private static int findArrayLengthWithoutMinimals(int minimum, int[] numbers) {
+
+		int frequencyOfMinimal;
+		int arrayLength;
+
+		frequencyOfMinimal = findFrequencyOfNumber(minimum, numbers);
+
+		arrayLength = numbers.length - frequencyOfMinimal;
+
+		return arrayLength;
 	}
 
-	private static boolean isNumberUnique(int number, int[] array) {
-		int counter;
-		counter = 0;
+	private static int findMinimum(int[] numbers) {
 
-		for (int i = 0; i < array.length; i++) {
-			if (array[i] == number) {
-				counter++;
+		int minimum;
+		minimum = numbers[0];
+
+		for (int index = 1; index < numbers.length; index++) {
+			if (numbers[index] < minimum) {
+				minimum = numbers[index];
 			}
 		}
-		
-		return counter > 1 ? false : true;
+		return minimum;
+	}
+
+	private static int findFrequencyOfNumber(int num, int[] numbers) {
+
+		int count;
+		count = 0;
+
+		for (int index = 0; index < numbers.length; index++) {
+			if (numbers[index] == num) {
+				count++;
+			}
+		}
+
+		return count;
 	}
 
 }
