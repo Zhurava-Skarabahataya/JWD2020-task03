@@ -11,7 +11,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		int[] numbers = new int[] { 1, 4, 7, 1, 1, 4, 6, 8, 7 };
+		int[] numbers;
+		numbers = new int[] { 1, 4, 7, 1, 1, 4, 6, 8, 7 };
 
 		int[] numbersWithoutMin;
 		numbersWithoutMin = deleteMinimalNumbers(numbers);
@@ -36,6 +37,7 @@ public class Main {
 		count = 0;
 
 		for (int index = 0; index < numbers.length; index++) {
+			
 			if (numbers[index] != minimum) {
 				arrayWithoutMinimal[count++] = numbers[index];
 			}

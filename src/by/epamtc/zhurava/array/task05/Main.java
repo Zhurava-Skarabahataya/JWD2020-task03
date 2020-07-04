@@ -7,7 +7,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		double[] numbers = new double[] { 2, 5, 3, 7, 1, 14 };
+		double[] numbers;
+		numbers = new double[] { 2, 5, 3, 7, 1, 14 };
 
 		System.out.println(findSumOfMinAndMax(numbers));
 

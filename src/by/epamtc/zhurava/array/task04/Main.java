@@ -9,7 +9,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		int[] numbers = new int[] { 3, 6, 1, 2, 2, 2, 7, 7, 7, 4, 8 };
+		int[] numbers;
+		numbers = new int[] { 3, 6, 1, 2, 2, 2, 7, 7, 7, 4, 8 };
 
 		System.out.println(findMostFrequentNumber(numbers));
 
@@ -29,10 +30,12 @@ public class Main {
 			frequency = findFrequency(numbers[index], numbers);
 
 			if (frequency > maxFrequency) {
+				
 				maxFrequency = frequency;
 				mostFrequentNumber = numbers[index];
 
 			} else if (frequency == maxFrequency) {
+				
 				if (numbers[index] < mostFrequentNumber) {
 					mostFrequentNumber = numbers[index];
 				}
@@ -48,6 +51,7 @@ public class Main {
 		counter = 0;
 
 		for (int index = 0; index < numbers.length; index++) {
+			
 			if (number == numbers[index]) {
 				counter++;
 			}

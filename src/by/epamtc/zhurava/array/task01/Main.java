@@ -8,7 +8,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		double[] numbers = new double[] { 1, 4, 8, 16, 2, 3, 5, 1 };
+		double[] numbers;
+		numbers = new double[] { 1, 4, 8, 16, 2, 3, 5, 1 };
 
 		System.out.println(findMaxSum(numbers));
 
